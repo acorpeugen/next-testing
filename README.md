@@ -1,4 +1,4 @@
-# This is template for quick start of development (Next.js, Generate React CLI, Storybook, Styled-Components, Testing-library)
+# This is template for quick start of development (Next.js, Generate React CLI, Storybook, Material UI with Emotion, Testing-library)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
