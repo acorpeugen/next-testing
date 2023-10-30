@@ -1,0 +1,47 @@
+{
+  "component": {
+    "default": {
+      "customTemplates": {
+        "component": "templates/component/TemplateName.tsx",
+        "hooks": "templates/component/hooks.ts",
+        "index": "templates/component/index.ts",
+        "stories": "template/component/TemplateName.stories.tsx",
+        "styled": "templates/component/styled.ts",
+        "test": "templates/component/TemplateName.test.tsx",
+        "types": "templates/component/types.ts"
+      },
+      "path": "src/components",
+      "withHooks": true,
+      "withIndex": true,
+      "withLazy": false,
+      "withStyle": false,
+      "withStory": true,
+      "withStyled": true,
+      "withTest": true,
+      "withTypes": true
+    },
+    "page": {
+      "customTemplates": {
+        "component": "templates/page/TemplateName.tsx",
+        "hooks": "templates/page/hooks.ts",
+        "index": "templates/page/index.ts",
+        "stories": "template/page/TemplateName.stories.tsx",
+        "styled": "templates/page/styled.ts",
+        "test": "templates/page/TemplateName.test.tsx",
+        "types": "templates/page/types.ts"
+      },
+      "path": "src/pages",
+      "withHooks": true,
+      "withIndex": true,
+      "withLazy": false,
+      "withStyle": false,
+      "withStory": true,
+      "withStyled": true,
+      "withTest": true,
+      "withTypes": true
+    }
+  },
+  "testLibrary": "Testing Library",
+  "usesStyledComponents": true,
+  "usesTypeScript": true
+}
