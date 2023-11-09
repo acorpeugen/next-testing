@@ -1,0 +1,35 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+
+echo "$CYAN info -$WHITE Now we will run lint-staged to prettify and apply fix eslint to staged files."
+sleep 2
+npx lint-staged
+echo "$CYAN info -$GREEN ✅ Filles succesfuly prettified and fixed."
+sleep 1
+echo "$CYAN info -$WHITE Now we will check types. If check is not passed, please solve errors."
+sleep 2
+
+yarn build
+
+npx tsc
+
+echo "$CYAN info -$GREEN ✅ Good job, type checks were passed.$WHITE"
+sleep 2
+echo "$CYAN info -$WHITE Now we will run eslint in order to check errors and number of warnings."
+sleep 2
+echo "$CYAN info -$WHITE If there are more than 50 warnings you will not be able to commit your changes."
+sleep 2
+
+npx eslint './src/{components,PageBuilder}/**/*' --ext .tsx,.ts --max-warnings 80
+
+echo "$CYAN info -$GREEN ✅ Good job, eslint checks were passed.$WHITE"
+sleep 2
+echo "$CYAN info -$GREEN 👏You are doing a great job! I am proud of you!$WHITE"
+sleep 2
+echo "$CYAN info -$YELLOW Now write your commit taking into account the following structure [TicketNumber]Name of ticket: short description of commit.$WHITE"
+yarn format
