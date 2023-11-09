@@ -1,6 +1,140 @@
 {
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
   "extends": [
     "next/core-web-vitals",
-    "plugin:storybook/recommended"
-  ]
+    "next",
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
+  "ignorePatterns": ["config/*", "i18n/*", "generated/*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"]
+    }
+  ],
+  "rules": {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "ignoreRestSiblings": true
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      { "prefer": "type-imports" }
+    ],
+    "for-direction": "error",
+    "no-cond-assign": ["error", "always"],
+    "import/no-duplicates": "error",
+    "no-self-compare": "error",
+    "no-template-curly-in-string": "warn", // https://eslint.org/docs/rules/no-template-curly-in-string
+    "no-unmodified-loop-condition": "warn", // https://eslint.org/docs/rules/no-unmodified-loop-condition
+    "no-unreachable-loop": "error", // https://eslint.org/docs/rules/no-unreachable-loop
+    "no-use-before-define": "warn", // https://eslint.org/docs/rules/no-use-before-define
+    "block-scoped-var": "error", // https://eslint.org/docs/rules/block-scoped-var
+    "camelcase": [
+      "off",
+      {
+        "properties": "always"
+      }
+    ], // https://eslint.org/docs/rules/camelcase
+    "curly": "warn", // https://eslint.org/docs/rules/curly
+    "default-case": "warn", // https://eslint.org/docs/rules/default-case
+    "default-case-last": "error", // https://eslint.org/docs/rules/default-case-last
+    "default-param-last": "error", // https://eslint.org/docs/rules/default-param-last
+    "eqeqeq": "error", // https://eslint.org/docs/rules/eqeqeq
+    "id-denylist": [1, "w"], // This rule disallows specified identifiers in assignments and function definitions // https://eslint.org/docs/rules/id-denylist
+    "no-alert": "warn", // https://eslint.org/docs/rules/no-alert
+    "no-array-constructor": "error", // https://eslint.org/docs/rules/no-array-constructor
+    "no-console": "warn", // https://eslint.org/docs/rules/no-console
+    "no-else-return": "error", // https://eslint.org/docs/rules/no-else-return
+    "no-eval": "error", //https://eslint.org/docs/rules/no-eval
+    "no-implicit-coercion": "error", // https://eslint.org/docs/rules/no-implicit-coercion
+    "no-implied-eval": "error", // https://eslint.org/docs/rules/no-implied-eval
+    "no-lonely-if": "error", // https://eslint.org/docs/rules/no-lonely-if
+    "no-nested-ternary": "warn", // https://eslint.org/docs/rules/no-nested-ternary
+    "no-param-reassign": "error", //https://eslint.org/docs/rules/no-param-reassign
+    "no-plusplus": [
+      // https://eslint.org/docs/rules/no-plusplus
+      "error",
+      {
+        "allowForLoopAfterthoughts": true
+      }
+    ],
+    "no-return-assign": ["warn", "always"], //https://eslint.org/docs/rules/no-return-assign
+    "no-unneeded-ternary": "error", // https://eslint.org/docs/rules/no-unneeded-ternary
+    "no-useless-concat": "error", // https://eslint.org/docs/rules/no-useless-concat
+    "no-useless-return": "error", // https://eslint.org/docs/rules/no-useless-return
+    "no-var": "warn", // https://eslint.org/docs/rules/no-var
+    "prefer-const": "error", // https://eslint.org/docs/rules/prefer-const
+    "no-empty-pattern": "warn",
+    "react/display-name": "off",
+    "@typescript-eslint/ban-types": "warn",
+    "import/no-unresolved": "error",
+    "import/order": [
+      "error",
+      {
+        "newlines-between": "always",
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "object",
+          "type",
+          "sibling"
+        ]
+      }
+    ],
+    "import/export": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 0,
+    "import/namespace": "warn",
+    "no-restricted-imports": [
+      // https://eslint.org/docs/rules/no-restricted-imports
+      "warn", //after we fix all the paths, this will change this to error.
+      {
+        "patterns": [
+          {
+            "group": ["@components/*"],
+            "message": "Please use '@components' without relative paths to import components."
+          },
+          {
+            "group": ["@utils/*"],
+            "message": "Please use '@utils' without relative paths to import utility functions from @utils."
+          }
+        ]
+      }
+    ]
+  }
 }
