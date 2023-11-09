@@ -1,13 +1,13 @@
-import { Stack, Button } from '@mui/material';
+import { AddTodo } from '@components';
 
-export default function Home() {
+import { getTodos } from '../actions/actions';
+
+export default async function Home() {
+  const todos = await getTodos();
+
   return (
     <main>
-      <Stack spacing={2} direction="row">
-        <Button variant="text">Text</Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="outlined">Outlined</Button>
-      </Stack>
+      <AddTodo {...{ todos }} />
     </main>
   );
 }
