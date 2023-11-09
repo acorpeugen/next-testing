@@ -32,4 +32,3 @@ sleep 2
 echo "$CYAN info -$GREEN 👏You are doing a great job! I am proud of you!$WHITE"
 sleep 2
 echo "$CYAN info -$YELLOW Now write your commit taking into account the following structure [TicketNumber]Name of ticket: short description of commit.$WHITE"
-yarn format
